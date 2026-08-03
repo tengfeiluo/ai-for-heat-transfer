@@ -4,8 +4,13 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI for Heat Transfer</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
-<meta name="description" content="AI for Heat Transfer — a community working group connecting thermal science and engineering with artificial intelligence across academia, industry, and national laboratories.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23b4552d'/><path d='M14 22c6-6 14 6 20 0s10-6 16 0M14 34c6-6 14 6 20 0s10-6 16 0M14 46c6-6 14 6 20 0s10-6 16 0' stroke='%23fff' stroke-width='5' fill='none' stroke-linecap='round'/></svg>">
+<meta name="description" content="A 40-member working group of university, industry, and national-laboratory researchers bringing AI into thermal science and engineering.">
+<meta property="og:title" content="AI for Heat Transfer">
+<meta property="og:description" content="A 40-member working group of university, industry, and national-laboratory researchers bringing AI into thermal science and engineering.">
+<meta property="og:url" content="https://tengfeiluo.github.io/ai-for-heat-transfer/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
 <style>
   :root {
     --bg: #ffffff; --fg: #1a1d21; --muted: #5a6270; --accent: #b4552d;
@@ -24,7 +29,7 @@
   nav { position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid var(--line); z-index: 10; }
   nav .wrap { display: flex; flex-wrap: wrap; gap: 0.25rem 1.4rem; align-items: baseline; padding-top: .7rem; padding-bottom: .7rem; }
   nav .brand { font-weight: 700; margin-right: auto; color: var(--fg); text-decoration: none; }
-  nav a.item { color: var(--muted); text-decoration: none; font-size: .95rem; }
+  nav a.item { color: var(--muted); text-decoration: none; font-size: .95rem; padding: .55rem 0; display: inline-block; }
   nav a.item:hover { color: var(--accent); }
 
   header.hero { padding: 4.5rem 0 3.5rem; border-bottom: 1px solid var(--line); }
@@ -36,12 +41,23 @@
          font-weight: 600; border: 1px solid var(--accent); }
   .btn.primary { background: var(--accent); color: #fff; }
   .btn.ghost { color: var(--accent); }
+  .btn:hover { filter: brightness(1.07); }
+  .btn:active { filter: brightness(.93); }
+  .btn:focus-visible, a:focus-visible { outline: 3px solid var(--fg); outline-offset: 2px; border-radius: 4px; }
+  @media (prefers-color-scheme: dark) { .btn.primary { color: #16181c; } }
+  section, header.hero { scroll-margin-top: 5rem; }
+  @media (max-width: 40rem) { section, header.hero { scroll-margin-top: 8rem; } }
+  .cred { margin-top: 1.2rem; color: var(--muted); font-size: .92rem; }
+  .deadline { font-size: 1.1rem; margin-bottom: 1.1rem; }
+  details.roster summary { cursor: pointer; font-weight: 600; color: var(--accent); padding: .45rem 0; }
+  details.roster[open] summary { margin-bottom: .7rem; }
 
   section { padding: 3rem 0; border-bottom: 1px solid var(--line); }
   section h2 { font-size: 1.6rem; letter-spacing: -0.01em; margin-bottom: 1rem; }
   section .lede { color: var(--muted); max-width: 46rem; margin-bottom: 1.5rem; }
 
-  .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15.5rem, 1fr)); }
+  .grid { display: grid; gap: 1rem; grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 34rem) { .grid { grid-template-columns: 1fr; } }
   .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.1rem 1.2rem; }
   .card h3 { font-size: 1.05rem; margin-bottom: .35rem; }
   .card .leads { font-size: .88rem; color: var(--muted); margin-top: .6rem; }
@@ -50,7 +66,7 @@
   ol.objectives { padding-left: 1.2rem; display: grid; gap: .6rem; max-width: 46rem; }
   ol.objectives b { color: var(--accent); }
 
-  .news-item { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding: .9rem 0; border-top: 1px solid var(--line); }
+  .news-item { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding: .9rem 0; border-top: 1px solid var(--line); max-width: 55rem; }
   .news-item:first-of-type { border-top: none; }
   .news-item .date { color: var(--muted); font-size: .9rem; padding-top: .15rem; }
   .news-item h3 { font-size: 1.02rem; margin-bottom: .2rem; }
@@ -73,6 +89,7 @@
     <a class="brand" href="#top">AI for Heat Transfer</a>
     <a class="item" href="#mission">Mission</a>
     <a class="item" href="#subgroups">Subgroups</a>
+    <a class="item" href="#special-issue">Special issue</a>
     <a class="item" href="#news">News</a>
     <a class="item" href="#members">Members</a>
     <a class="item" href="#join">Join</a>
@@ -81,24 +98,25 @@
 
 <header class="hero" id="top">
   <div class="wrap">
-    <h1>Advancing heat transfer research and engineering with <span>artificial intelligence</span></h1>
-    <p class="tag">AI for Heat Transfer is a community working group that connects thermal science and engineering with AI across academia, industry, and national laboratories.</p>
+    <h1>Putting <span>AI</span> to work on heat transfer</h1>
+    <p class="tag">We are a working group of 40 researchers from universities, companies, and national laboratories. We organize the conference sessions, webinars, benchmarks, and community roadmap that bring AI into thermal science and engineering.</p>
     <div class="cta">
       <a class="btn primary" href="#join">Join the group</a>
-      <a class="btn ghost" href="#news">Latest news</a>
+      <a class="btn ghost" href="#special-issue">Submit to the special issue</a>
     </div>
+    <p class="cred">Founded 2026 · Coordinated by Tengfei Luo, University of Notre Dame</p>
   </div>
 </header>
 
 <section id="mission">
   <div class="wrap">
     <h2>Mission</h2>
-    <p class="lede">The working group coordinates and grows AI-related activity across the heat transfer community. We build the community, venues, and resources that connect thermal science and engineering with AI — maintaining both fundamentals (new AI methods for heat transfer) and applications (AI tools in research, education, and engineering practice), and serving both researchers who develop new algorithms and those who apply existing AI tools in their work. Because AI is a fast-moving target, the group tracks the frontier and brings it to the community early.</p>
+    <p class="lede">The group exists to grow the use of AI across heat transfer research, education, and engineering practice. We build the venues and resources that connect the thermal community with AI, serving researchers who develop new algorithms for thermal problems as well as those who simply want to use AI tools well in their everyday work.</p>
     <ol class="objectives">
-      <li><b>Convene</b> — dedicated venues at heat transfer conferences: an AI track at SHTC 2027, panels, tutorials and short courses, and a teaching &amp; education panel.</li>
-      <li><b>Communicate</b> — a quarterly webinar series bringing together domain experts, AI experts, and industry voices, and early communication of emerging AI methods to the community.</li>
-      <li><b>Chart</b> — a community roadmap paper on the state of the art and outlook of AI in heat transfer, from emerging tools to the grand-challenge problems AI might unlock.</li>
-      <li><b>Build</b> — benchmarks, community datasets and data-sharing guidelines, competitions, and education and student activities that grow an AI-fluent heat transfer community.</li>
+      <li><b>Conferences.</b> An AI track at the Summer Heat Transfer Conference (SHTC) 2027, conference panels, tutorials and short courses, and a teaching panel.</li>
+      <li><b>Webinars.</b> A quarterly speaker series that mixes domain experts, AI specialists, and industry voices, starting fall 2026.</li>
+      <li><b>A community roadmap.</b> A paper on where AI in heat transfer stands and where it can go, from emerging tools to long-standing problems AI might finally unlock.</li>
+      <li><b>Benchmarks and education.</b> Shared datasets and data guidelines, an annual competition, and activities that help students build AI skills.</li>
     </ol>
   </div>
 </section>
@@ -115,12 +133,12 @@
       </div>
       <div class="card">
         <h3>Knowledge Products</h3>
-        <p>The community roadmap paper and the special issue of the <em>Journal of Heat and Mass Transfer</em>.</p>
+        <p>The community roadmap paper and the <a href="#special-issue">special issue</a> of the <em>Journal of Heat and Mass Transfer</em>.</p>
         <p class="leads"><strong>Lead:</strong> Andy Feng · <strong>Co-leads:</strong> Rohith Mittapally, Yogesh Fulpagare</p>
       </div>
       <div class="card">
         <h3>Webinars</h3>
-        <p>A quarterly speaker series on AI for heat transfer — first webinar targeted for fall 2026.</p>
+        <p>A quarterly speaker series on AI for heat transfer; the first webinar is planned for fall 2026.</p>
         <p class="leads"><strong>Co-leads:</strong> Naimish Pandya, Dhruval Shah</p>
       </div>
       <div class="card">
@@ -132,6 +150,15 @@
   </div>
 </section>
 
+<section id="special-issue">
+  <div class="wrap">
+    <h2>Special issue: AI and machine learning for thermal science and engineering</h2>
+    <p class="lede">The <em>Journal of Heat and Mass Transfer</em> is accepting submissions for a special issue on AI and machine learning for thermal science and engineering. Guest editors: group members Guoping Xiong, Tengfei Luo, and Ming Hu, together with Masato Ohnishi (Institute of Statistical Mathematics) and Jianxun Wang (Cornell University).</p>
+    <p class="deadline"><strong>Submission deadline: October 31, 2026</strong></p>
+    <a class="btn primary" href="https://www.asme.org/publications-submissions/journals/administration/call-for-papers/special-issue-artificial-intelligence-and-machine-learning-for-thermal-science-and-engineering" target="_blank" rel="noopener">Submit a paper</a>
+  </div>
+</section>
+
 <section id="news">
   <div class="wrap">
     <h2>News</h2>
@@ -139,14 +166,14 @@
       <div class="date">Jul 28, 2026</div>
       <div>
         <h3>Working group kicks off at SHTC 2026</h3>
-        <p>The group held its hybrid kickoff meeting in Bellevue, WA, with 35 participants from academia, industry, and national laboratories. The group adopted the name "AI for Heat Transfer," confirmed its Year-1 priorities — a community roadmap paper, a quarterly webinar series, and an AI track for SHTC 2027 — and welcomed 15 new members.</p>
+        <p>The group held its hybrid kickoff meeting in Bellevue, WA, with 35 participants from academia, industry, and national laboratories. The group adopted the name "AI for Heat Transfer," confirmed its first-year priorities (a community roadmap paper, a quarterly webinar series, and an AI track for SHTC 2027), and welcomed 15 new members.</p>
       </div>
     </div>
     <div class="news-item">
       <div class="date">Jul 26, 2026</div>
       <div>
-        <h3>Special issue: AI and machine learning for thermal science and engineering</h3>
-        <p>The <em>Journal of Heat and Mass Transfer</em> has opened a special issue guest-edited by Guoping Xiong, Tengfei Luo, Ming Hu, Masato Ohnishi, and Jianxun Wang. Submissions are due <strong>October 31, 2026</strong>. <a href="https://www.asme.org/publications-submissions/journals/administration/call-for-papers/special-issue-artificial-intelligence-and-machine-learning-for-thermal-science-and-engineering">Call for papers →</a></p>
+        <h3>Journal special issue opens for submissions</h3>
+        <p>The <em>Journal of Heat and Mass Transfer</em> opened a special issue on AI and machine learning for thermal science and engineering, guest-edited by five researchers including three group members. Details and the call for papers are in the <a href="#special-issue">Special issue</a> section.</p>
       </div>
     </div>
   </div>
@@ -156,6 +183,8 @@
   <div class="wrap">
     <h2>Members</h2>
     <p class="lede"><strong>Coordinator:</strong> Tengfei Luo (University of Notre Dame). The group currently has 40 members spanning universities, companies, and national laboratories across four countries.</p>
+    <details class="roster" id="roster">
+    <summary>Show all 40 members</summary>
     <ul class="members">
       <li>Mehmet Arik <span class="aff">— Ozyegin University</span></li>
       <li>Van P. Carey <span class="aff">— UC Berkeley</span></li>
@@ -198,22 +227,28 @@
       <li>Bo Zhao <span class="aff">— University of Houston</span></li>
       <li>Jian Zhao <span class="aff">— Mississippi State University</span></li>
     </ul>
+    </details>
   </div>
 </section>
 
 <section id="join">
   <div class="wrap">
     <h2>Join us</h2>
-    <p class="lede">Membership is open — there is no cap. We especially welcome colleagues from industry and national laboratories. Nominate a colleague, or yourself:</p>
-    <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSchHLdtIgRODcW4vyqVF9LapxVHicRSipYR_n97SxWWGCV8tg/viewform">Nomination form</a>
+    <p class="lede">Membership is open, with no cap. We especially welcome colleagues from industry and national laboratories. Nominate a colleague, or yourself:</p>
+    <a class="btn primary" href="https://docs.google.com/forms/d/e/1FAIpQLSchHLdtIgRODcW4vyqVF9LapxVHicRSipYR_n97SxWWGCV8tg/viewform" target="_blank" rel="noopener">Nomination form</a>
+    <p class="cred">If the form is not reachable from your network, email <a href="mailto:tluo@nd.edu">tluo@nd.edu</a> instead.</p>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p>AI for Heat Transfer working group · Coordinator: Tengfei Luo (<a href="mailto:tluo@nd.edu">tluo@nd.edu</a>)</p>
+    <p>AI for Heat Transfer working group · Coordinator: Tengfei Luo (<a href="mailto:tluo@nd.edu">tluo@nd.edu</a>) · Last updated August 2026</p>
   </div>
 </footer>
+
+<script>
+  if (matchMedia('(min-width: 48rem)').matches) document.getElementById('roster').setAttribute('open', '');
+</script>
 
 </body>
 </html>
