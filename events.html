@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Events · AI for Heat Transfer</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23b4552d'/><path d='M14 22c6-6 14 6 20 0s10-6 16 0M14 34c6-6 14 6 20 0s10-6 16 0M14 46c6-6 14 6 20 0s10-6 16 0' stroke='%23fff' stroke-width='5' fill='none' stroke-linecap='round'/></svg>">
+<meta name="description" content="Events of the AI for Heat Transfer working group. Next: webinar by Chandrakant D. Patel, December 10, 2026.">
+<meta property="og:title" content="Events · AI for Heat Transfer">
+<meta property="og:description" content="Events of the AI for Heat Transfer working group. Next: webinar by Chandrakant D. Patel, December 10, 2026.">
+<meta property="og:url" content="https://tengfeiluo.github.io/ai-for-heat-transfer/events.html">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<style>
+  :root {
+    --bg: #ffffff; --fg: #1a1d21; --muted: #5a6270; --accent: #b4552d;
+    --card: #f6f4f1; --line: #e4e0da; --maxw: 62rem;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #16181c; --fg: #e8e6e3; --muted: #9aa2ad; --accent: #e08a5e;
+            --card: #1f2228; --line: #2e323a; }
+  }
+  * { margin: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--fg);
+         font: 16px/1.65 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  a { color: var(--accent); }
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 1.25rem; }
+
+  nav { position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid var(--line); z-index: 10; }
+  nav .wrap { display: flex; flex-wrap: wrap; gap: 0.25rem 1.4rem; align-items: baseline; padding-top: .7rem; padding-bottom: .7rem; }
+  nav .brand { font-weight: 700; margin-right: auto; color: var(--fg); text-decoration: none; }
+  nav a.item { color: var(--muted); text-decoration: none; font-size: .95rem; padding: .55rem 0; display: inline-block; }
+  nav a.item:hover { color: var(--accent); }
+
+  header.hero { padding: 4.5rem 0 3.5rem; border-bottom: 1px solid var(--line); }
+  header.hero { position: relative; overflow: hidden; }
+  .hero > .wrap { position: relative; }
+  .hero-art { position: absolute; top: 0; right: 0; height: 100%; width: min(55%, 40rem);
+              color: var(--accent); opacity: .22; pointer-events: none;
+              -webkit-mask-image: linear-gradient(to right, transparent, #000 45%);
+                      mask-image: linear-gradient(to right, transparent, #000 45%); }
+  @media (prefers-color-scheme: dark) { .hero-art { opacity: .2; } }
+  @media (max-width: 40rem) { .hero-art { width: 100%; opacity: .1; } }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3.1rem); line-height: 1.15; letter-spacing: -0.02em; }
+  .hero h1 span { color: var(--accent); }
+  .hero p.tag { margin-top: 1rem; font-size: 1.15rem; color: var(--muted); max-width: 44rem; }
+  .hero .cta { margin-top: 1.75rem; display: flex; gap: .8rem; flex-wrap: wrap; }
+  .btn { display: inline-block; padding: .55rem 1.1rem; border-radius: 8px; text-decoration: none;
+         font-weight: 600; border: 1px solid var(--accent); }
+  .btn.primary { background: var(--accent); color: #fff; }
+  .btn.ghost { color: var(--accent); }
+  .btn:hover { filter: brightness(1.07); }
+  .btn:active { filter: brightness(.93); }
+  .btn:focus-visible, a:focus-visible { outline: 3px solid var(--fg); outline-offset: 2px; border-radius: 4px; }
+  @media (prefers-color-scheme: dark) { .btn.primary { color: #16181c; } }
+  section, header.hero { scroll-margin-top: 5rem; }
+  @media (max-width: 40rem) { section, header.hero { scroll-margin-top: 8rem; } }
+  .cred { margin-top: 1.2rem; color: var(--muted); font-size: .92rem; }
+  .deadline { font-size: 1.1rem; margin-bottom: 1.1rem; }
+  details.roster summary { cursor: pointer; font-weight: 600; color: var(--accent); padding: .45rem 0; }
+  details.roster[open] summary { margin-bottom: .7rem; }
+
+  section { padding: 3rem 0; border-bottom: 1px solid var(--line); }
+  section h2 { font-size: 1.6rem; letter-spacing: -0.01em; margin-bottom: 1rem; }
+  section .lede { color: var(--muted); max-width: 46rem; margin-bottom: 1.5rem; }
+
+  .grid { display: grid; gap: 1rem; grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 34rem) { .grid { grid-template-columns: 1fr; } }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 1.1rem 1.2rem; }
+  .card h3 { font-size: 1.05rem; margin-bottom: .35rem; }
+  .card .leads { font-size: .88rem; color: var(--muted); margin-top: .6rem; }
+  .card .leads strong { color: var(--fg); font-weight: 600; }
+
+  ol.objectives { padding-left: 1.2rem; display: grid; gap: .6rem; max-width: 46rem; }
+  ol.objectives b { color: var(--accent); }
+
+  .news-item { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding: .9rem 0; border-top: 1px solid var(--line); max-width: 55rem; }
+  .news-item:first-of-type { border-top: none; }
+  .news-item .date { color: var(--muted); font-size: .9rem; padding-top: .15rem; }
+  .news-item h3 { font-size: 1.02rem; margin-bottom: .2rem; }
+  .news-item p { color: var(--muted); font-size: .95rem; }
+  @media (max-width: 34rem) { .news-item { grid-template-columns: 1fr; gap: .15rem; } }
+
+  ul.members { columns: 3; column-gap: 2rem; list-style: none; padding: 0; font-size: .93rem; }
+  ul.members li { margin-bottom: .45rem; break-inside: avoid; }
+  ul.members .aff { color: var(--muted); }
+  ul.members a { color: inherit; text-decoration: none; border-bottom: 1px solid var(--line); }
+  ul.members a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  @media (max-width: 48rem) { ul.members { columns: 2; } }
+  @media (max-width: 30rem) { ul.members { columns: 1; } }
+
+  footer { padding: 2.5rem 0 3.5rem; color: var(--muted); font-size: .92rem; }
+  .event { display: grid; grid-template-columns: 11rem 1fr; gap: 2rem; align-items: start; max-width: 55rem; }
+  .event img { width: 11rem; height: 11rem; border-radius: 50%; object-fit: cover; object-position: 50% 22%; border: 4px solid var(--accent); }
+  .event h3 { font-size: 1.35rem; line-height: 1.25; margin-bottom: .4rem; }
+  .event .speaker { font-weight: 600; }
+  .event .role { color: var(--muted); font-size: .95rem; margin-bottom: 1rem; }
+  .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: .8rem; margin: 1rem 0 1.2rem; }
+  .facts div { background: var(--card); border-left: 4px solid var(--accent); padding: .6rem .8rem; border-radius: 0 8px 8px 0; }
+  .facts small { display: block; color: var(--accent); font-weight: 700; font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; }
+  .event h4 { color: var(--accent); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; margin: 1.4rem 0 .4rem; }
+  .event p { margin-bottom: .7rem; }
+  .event p.small { color: var(--muted); font-size: .95rem; }
+  .eyebrow { color: var(--accent); font-weight: 700; font-size: .8rem; letter-spacing: .12em; text-transform: uppercase; margin-bottom: .5rem; }
+  @media (max-width: 40rem) { .event { grid-template-columns: 1fr; gap: 1rem; } .facts { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="./">AI for Heat Transfer</a>
+    <a class="item" href="./#mission">Mission</a>
+    <a class="item" href="./#subgroups">Subgroups</a>
+    <a class="item" href="./#special-issue">Special issue</a>
+    <a class="item" href="events.html" aria-current="page">Events</a>
+    <a class="item" href="./#news">News</a>
+    <a class="item" href="./#members">Members</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <h1><span>Events</span></h1>
+    <p class="tag">Webinars, panels, and meetings organized by the AI for Heat Transfer working group.</p>
+  </div>
+</header>
+
+<section id="upcoming">
+  <div class="wrap">
+    <h2>Upcoming</h2>
+    <div class="event">
+      <img src="chandrakant-patel.jpg" alt="Portrait of Chandrakant D. Patel" width="480" height="568">
+      <div>
+        <p class="eyebrow">AI for Heat Transfer Webinar Series · First webinar</p>
+        <h3>The Full-Stack Thermal Engineer: Applying AI to Deliver Net-Positive Impact</h3>
+        <p class="speaker">Chandrakant D. Patel, PE</p>
+        <p class="role">President, Chandrakant Patel Consulting · Former Senior Vice President, Chief Engineer, and Senior Fellow, HP Inc. · Member, National Academy of Engineering</p>
+        <div class="facts">
+          <div><small>Date</small>Thursday, December 10, 2026</div>
+          <div><small>Time</small>10:00–11:00 AM PT<br>1:00–2:00 PM ET</div>
+          <div><small>Where</small>Online (Zoom)<br>Free, registration required</div>
+        </div>
+        <div class="cta" style="display:flex;gap:.8rem;flex-wrap:wrap">
+          <a class="btn primary" href="https://notredame.zoom.us/webinar/register/WN_TzAP1U5cSsGYpT46iV3-EA" target="_blank" rel="noopener">Register on Zoom</a>
+          <a class="btn ghost" href="webinar-2026-12-10-flier.pdf" target="_blank" rel="noopener">Flier (PDF)</a>
+        </div>
+        <h4>Abstract</h4>
+        <p>In the age of AI, the information technology stack, from user interface to database, is rapidly accelerated through automation. This shift creates a strategic opportunity for the physical sciences. Engineers specializing in solid and fluid dynamics, heat transfer, and complex hardware can now move "up the stack" to become full-stack physical technologists. Today, a practitioner in heat transfer can be a system-level developer who applies AI not just to thermal design, but to the entire cyber-physical system. Indeed, this full-stack approach differentiates system performance and delivers a net positive impact measured in Joules.</p>
+        <p>In this talk, I will explore the application of AI in complex cyber-physical systems, such as modern data centers, where heat transfer is the ultimate differentiator. In an era of hardware-software co-design, physical technologists must move beyond isolated roles to shape end-to-end solutions, using available energy in Joules as our definitive measure of success. Remaining siloed is no longer viable.</p>
+        <h4>About the speaker</h4>
+        <p class="small">Chandrakant Patel is currently the President of Chandrakant Patel Consulting. He is a former Senior Vice President, Chief Engineer, and Senior Fellow of HP Inc. Recognized internationally for advancing the intersection of computing and physical infrastructure, he pioneered innovations in hard disc drives, interconnect and packaging of chips, thermal management of chips and systems, energy-efficient computing, sustainable data centers, cyber-physical systems, digital manufacturing, and city-scale resource optimization.</p>
+        <p class="small">Over a career spanning industry, academia, and innovation leadership, Patel has taught engineering for more than 16 years, received 165 patents, and published extensively. Today, he is focused on developing the next generation of engineers capable of integrating physical, cyber, economic, and ecological systems to design resilient and sustainable infrastructure for the AI era.</p>
+        <p class="small">Patel is an IEEE Life Fellow, a Fellow of the National Academy of Inventors, a Member of the National Academy of Engineering, and an inductee of the Silicon Valley Engineering Hall of Fame.</p>
+        <p class="small">The session will be recorded. Webinar organizers: Naimish Pandya, Dhruval Shah, and Chinmay Bhatt (Webinars subgroup).</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="past">
+  <div class="wrap">
+    <h2>Past events</h2>
+    <div class="news-item">
+      <div class="date">Nov 9, 2026</div>
+      <div><h3>Panel: "Nanoscale Heat Transfer in AI / AI in Nanoscale Heat Transfer"</h3><p>IMECE 2026, Vancouver. See <a href="./#news">News</a>.</p></div>
+    </div>
+    <div class="news-item">
+      <div class="date">Jul 28, 2026</div>
+      <div><h3>Kickoff meeting</h3><p>Hybrid meeting in Bellevue, WA. See <a href="./#news">News</a>.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>AI for Heat Transfer working group · Coordinator: Tengfei Luo (<a href="mailto:tluo@nd.edu">tluo@nd.edu</a>) · Last updated November 2026</p>
+  </div>
+</footer>
+
+</body>
+</html>
