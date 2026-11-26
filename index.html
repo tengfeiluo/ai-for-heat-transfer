@@ -276,5 +276,57 @@
   if (matchMedia('(min-width: 48rem)').matches) document.getElementById('roster').setAttribute('open', '');
 </script>
 
+<script>
+  // Hero dot grid: three hot spots drift slowly and the temperature map follows.
+  (function () {
+    var svg = document.querySelector('.hero-art');
+    if (!svg || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var dots = Array.prototype.slice.call(svg.querySelectorAll('circle'));
+    var W = 480, H = 300, AR = W / H;
+    var P = dots.map(function (c) { return [c.cx.baseVal.value / W, c.cy.baseVal.value / H]; });
+    var C = [[243, 217, 166], [233, 160, 59], [180, 85, 45]];   // cream, amber, terracotta
+    function color(T) {
+      var a, b, t;
+      if (T < 0.45) { a = C[0]; b = C[1]; t = T / 0.45; } else { a = C[1]; b = C[2]; t = (T - 0.45) / 0.55; }
+      return 'rgb(' + Math.round(a[0] + (b[0] - a[0]) * t) + ',' + Math.round(a[1] + (b[1] - a[1]) * t) + ',' + Math.round(a[2] + (b[2] - a[2]) * t) + ')';
+    }
+    // each source: center, amplitude, width, and a slow looping path
+    var S = [
+      { cx: 0.37, rx: 0.25, px: -0.747, cy: 0.55, ry: 0.25, py: 0.863, a: 1.00, s: 0.30, w: 0.32 },
+      { cx: 0.65, rx: 0.25, px: 0.368, cy: 0.40, ry: 0.25, py: -0.594, a: 0.78, s: 0.22, w: 0.24 },
+      { cx: 0.75, rx: 0.20, px: 0.848, cy: 0.70, ry: 0.20, py: 0.775, a: 0.45, s: 0.14, w: 0.40 }
+    ];
+    var visible = true, last = 0, t0 = null;
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }).observe(svg);
+    }
+    function frame(now) {
+      requestAnimationFrame(frame);
+      if (!visible || document.hidden || now - last < 40) return;   // about 25 frames per second
+      last = now;
+      if (t0 === null) t0 = now;
+      var t = (now - t0) / 1000;
+      var src = S.map(function (q) {
+        return [q.cx + q.rx * Math.sin(q.w * t + q.px),
+                q.cy + q.ry * Math.sin(q.w * 1.3 * t + q.py),
+                q.a * (1 + 0.1 * Math.sin(q.w * 2 * t)), 2 * q.s * q.s];
+      });
+      for (var i = 0; i < dots.length; i++) {
+        var x = P[i][0], y = P[i][1], T = 0;
+        for (var k = 0; k < src.length; k++) {
+          var dx = (x - src[k][0]) * AR, dy = y - src[k][1];
+          T += src[k][2] * Math.exp(-(dx * dx + dy * dy) / src[k][3]);
+        }
+        if (T > 1) T = 1;
+        var d = dots[i];
+        d.setAttribute('r', (1.6 + 6.2 * Math.pow(T, 0.85)).toFixed(2));
+        d.setAttribute('fill', color(T));
+        d.setAttribute('opacity', (0.22 + 0.78 * Math.min(1, T * 1.6)).toFixed(2));
+      }
+    }
+    requestAnimationFrame(frame);
+  })();
+</script>
+
 </body>
 </html>
