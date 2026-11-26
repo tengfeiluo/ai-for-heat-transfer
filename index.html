@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AI4HT - AI for Heat Transfer</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='14' fill='%23b4552d'/><path d='M14 22c6-6 14 6 20 0s10-6 16 0M14 34c6-6 14 6 20 0s10-6 16 0M14 46c6-6 14 6 20 0s10-6 16 0' stroke='%23fff' stroke-width='5' fill='none' stroke-linecap='round'/></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='11.0' cy='11.0' r='6.8' fill='%23de9138'/><circle cx='11.0' cy='32.0' r='7.9' fill='%23c97333'/><circle cx='11.0' cy='53.0' r='9.0' fill='%23b4552d'/><circle cx='32.0' cy='11.0' r='5.6' fill='%23ecb460'/><circle cx='32.0' cy='32.0' r='6.8' fill='%23de9138'/><circle cx='32.0' cy='53.0' r='7.9' fill='%23c97333'/><circle cx='53.0' cy='11.0' r='4.5' fill='%23f3d9a6'/><circle cx='53.0' cy='32.0' r='5.6' fill='%23ecb460'/><circle cx='53.0' cy='53.0' r='6.8' fill='%23de9138'/></svg>">
 <meta name="description" content="A 48-member working group of university, industry, and national-laboratory researchers bringing AI into thermal science and engineering.">
 <meta property="og:title" content="AI4HT - AI for Heat Transfer">
 <meta property="og:description" content="A 48-member working group of university, industry, and national-laboratory researchers bringing AI into thermal science and engineering.">
@@ -28,7 +28,10 @@
 
   nav { position: sticky; top: 0; background: var(--bg); border-bottom: 1px solid var(--line); z-index: 10; }
   nav .wrap { display: flex; flex-wrap: wrap; gap: 0.25rem 1.4rem; align-items: baseline; padding-top: .7rem; padding-bottom: .7rem; }
-  nav .brand { font-weight: 700; margin-right: auto; color: var(--fg); text-decoration: none; }
+  nav .brand { font-weight: 600; margin-right: auto; color: var(--fg); text-decoration: none; display: inline-flex; align-items: center; gap: .55rem; }
+  nav .brand .logo { width: 1.6rem; height: 1.6rem; flex: none; }
+  nav .brand b { font-weight: 800; letter-spacing: -.01em; }
+  nav .brand i { font-style: normal; color: var(--accent); }
   nav a.item { color: var(--muted); text-decoration: none; font-size: .95rem; padding: .55rem 0; display: inline-block; }
   nav a.item:hover { color: var(--accent); }
 
@@ -96,7 +99,7 @@
 
 <nav>
   <div class="wrap">
-    <a class="brand" href="#top">AI4HT - AI for Heat Transfer</a>
+    <a class="brand" href="#top"><svg class="logo" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><circle cx="9.0" cy="9.0" r="4.8" fill="#de9138"/><circle cx="9.0" cy="24.3" r="5.4" fill="#d07d34"/><circle cx="9.0" cy="39.6" r="6.0" fill="#c26931"/><circle cx="9.0" cy="54.9" r="6.6" fill="#b4552d"/><circle cx="24.3" cy="9.0" r="4.2" fill="#eaa748"/><circle cx="24.3" cy="24.3" r="4.8" fill="#de9138"/><circle cx="24.3" cy="39.6" r="5.4" fill="#d07d34"/><circle cx="24.3" cy="54.9" r="6.0" fill="#c26931"/><circle cx="39.6" cy="9.0" r="3.6" fill="#efc077"/><circle cx="39.6" cy="24.3" r="4.2" fill="#eaa748"/><circle cx="39.6" cy="39.6" r="4.8" fill="#de9138"/><circle cx="39.6" cy="54.9" r="5.4" fill="#d07d34"/><circle cx="54.9" cy="9.0" r="3.0" fill="#f3d9a6"/><circle cx="54.9" cy="24.3" r="3.6" fill="#efc077"/><circle cx="54.9" cy="39.6" r="4.2" fill="#eaa748"/><circle cx="54.9" cy="54.9" r="4.8" fill="#de9138"/></svg><span><b>AI<i>4</i>HT</b> - AI for Heat Transfer</span></a>
     <a class="item" href="#mission">Mission</a>
     <a class="item" href="#subgroups">Subgroups</a>
     <a class="item" href="#special-issue">Special issue</a>
